@@ -9,6 +9,11 @@ import (
 // Handlers is interface for handlers
 type Handlers interface {
 	CheckLiveness(c *gin.Context)
+	GetMyIotaWallet(c *gin.Context)
+	CreateOrder(c *gin.Context)
+	GetOrders(c *gin.Context)
+	GetCrops(c *gin.Context)
+	GetMyWallets(c *gin.Context)
 }
 
 // handlers is struct for handlers

@@ -14,13 +14,23 @@ func applyRouter(app *gin.Engine, handlers handlers.Handlers) {
 
 	apiRoute := app.Group("/orders")
 	{
-		apiRoute.GET("/", handlers.CheckLiveness)
-		apiRoute.POST("/", handlers.CheckLiveness)
+		apiRoute.GET("/", handlers.GetOrders)
+		apiRoute.POST("/", handlers.CreateOrder)
 	}
 
-	apiRoute = app.Group("/positions")
+	apiRoute = app.Group("/crops")
 	{
-		apiRoute.GET("/", handlers.CheckLiveness)
+		apiRoute.GET("/", handlers.GetCrops)
+	}
+
+	apiRoute = app.Group("/wallets")
+	{
+		apiRoute.GET("/", handlers.GetMyWallets)
+	}
+
+	apiRoute = app.Group("/iota-wallets")
+	{
+		apiRoute.GET("/", handlers.GetMyIotaWallet)
 	}
 
 	app.NoRoute(func(c *gin.Context) {

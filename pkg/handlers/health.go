@@ -8,6 +8,6 @@ import (
 )
 
 // CheckLiveness ...
-func (handler *handlers) CheckLiveness(c *gin.Context) {
+func (h *handlers) CheckLiveness(c *gin.Context) {
 	entities.NewResponse(nil).Response(c, http.StatusOK)
 }
